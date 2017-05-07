@@ -96,11 +96,11 @@ double RPN::postfixEval(string* postfixExpr) {
     if (postfixExpr[i][0] >= '0' && postfixExpr[i][0] <= '9') {
       operandStack.push(postfixExpr[i]);
     } else {
-      string operand2 = operandStack.top();
+      string secondOperand = operandStack.top();
       operandStack.pop();
-      string operand1 = operandStack.top();
+      string firstOperand = operandStack.top();
       operandStack.pop();
-      result = doMath(postfixExpr[i], operand1, operand2);
+      result = doMath(postfixExpr[i], firstOperand, secondOperand);
       AnsiString aResult = AnsiString(result);
       operandStack.push(aResult.c_str());
     }
