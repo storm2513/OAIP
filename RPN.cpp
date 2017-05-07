@@ -61,17 +61,17 @@ string RPN::infixToPostfix() {
 
 // Вычислить результат выполнения выражения со строковыми оператором и двумя
 // операндами
-double RPN::doMath(string sign, string _op1, string _op2) {
-  double op1 = _op1.c_str().ToDouble();;
-  double op2 = _op2.c_str().ToDouble();;
+double RPN::doMath(string sign, string firstStringOperand, string secondStringOperand) {
+  double firstOperand = firstStringOperand.c_str().ToDouble();
+  double secondOperand = secondStringOperand.c_str().ToDouble();
   if (sign[0] == '*')
-    return op1 * op2;
+    return firstOperand * secondOperand;
   else if (sign[0] == '/')
-    return op1 / op2;
+    return firstOperand / secondOperand;
   else if (sign[0] == '+')
-    return op1 + op2;
+    return firstOperand + secondOperand;
   else
-    return op1 - op2;
+    return firstOperand - secondOperand;
 }
 
 // Убрать пробелы в строке
