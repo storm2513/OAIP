@@ -17,59 +17,58 @@ RPN::RPN(string* s, int _size) {
 
 // Перевод из инфиксной формы в постфиксную
 string RPN::infixToPostfix() {
-  stack<char> opStack;
-  map<char, int> prec;  //= {{'*', 3}, {'/', 3}, {'+', 2}, {'-', 2}, {'(', 1}};
-  prec.insert(pair<char, int>('*', 3));
-  prec.insert(pair<char, int>('/', 3));
-  prec.insert(pair<char, int>('+', 2));
-  prec.insert(pair<char, int>('-', 2));
-  prec.insert(pair<char, int>('(', 1));
+  stack<char> opearatorsStack;
+  map<char, int> significance;  //= {{'*', 3}, {'/', 3}, {'+', 2}, {'-', 2}, {'(', 1}};
+  significance.insert(pair<char, int>('*', 3));
+  significance.insert(pair<char, int>('/', 3));
+  significance.insert(pair<char, int>('+', 2));
+  significance.insert(pair<char, int>('-', 2));
+  significance.insert(pair<char, int>('(', 1));
   char topToken;
-  string postfixList = "";
+  string postfixString = "";
   for (int i = 0; i < size; i++) {
     if (infix[i][0] >= '0' && infix[i][0] <= '9') {
-      postfixList += infix[i];
-      postfixList += " ";
+      postfixString += infix[i];
+      postfixString += " ";
     } else if (infix[i][0] == '(') {
-      opStack.push(infix[i][0]);
+      opearatorsStack.push(infix[i][0]);
     } else if (infix[i][0] == ')') {
-      topToken = opStack.top();
-      opStack.pop();
+      topToken = opearatorsStack.top();
+      opearatorsStack.pop();
       while (topToken != '(') {
-        postfixList += topToken;
-        postfixList += " ";
-        topToken = opStack.top();
-        opStack.pop();
+        postfixString += topToken;
+        postfixString += " ";
+        topToken = opearatorsStack.top();
+        opearatorsStack.pop();
       }
     } else {
-      while (!opStack.empty() && prec[opStack.top()] >= prec[infix[i][0]]) {
-        postfixList += opStack.top();
-        postfixList += " ";
-        opStack.pop();
+      while (!opearatorsStack.empty() 
+        && significance[opearatorsStack.top()] >= significance[infix[i][0]]) {
+        postfixString += opearatorsStack.top();
+        postfixString += " ";
+        opearatorsStack.pop();
       }
-      opStack.push(infix[i][0]);
+      opearatorsStack.push(infix[i][0]);
     }
   }
-  while (!opStack.empty()) {
-    postfixList += opStack.top();
-    postfixList += " ";
-    opStack.pop();
+  while (!opearatorsStack.empty()) {
+    postfixString += opearatorsStack.top();
+    postfixString += " ";
+    opearatorsStack.pop();
   }
-  return postfixList;
+  return postfixString;
 }
 
 // Вычислить результат выполнения выражения со строковыми оператором и двумя
 // операндами
-double RPN::doMath(string op, string _op1, string _op2) {
-  AnsiString opas1 = _op1.c_str();
-  AnsiString opas2 = _op2.c_str();
-  double op1 = opas1.ToDouble();
-  double op2 = opas2.ToDouble();
-  if (op[0] == '*')
+double RPN::doMath(string sign, string _op1, string _op2) {
+  double op1 = _op1.c_str().ToDouble();;
+  double op2 = _op2.c_str().ToDouble();;
+  if (sign[0] == '*')
     return op1 * op2;
-  else if (op[0] == '/')
+  else if (sign[0] == '/')
     return op1 / op2;
-  else if (op[0] == '+')
+  else if (sign[0] == '+')
     return op1 + op2;
   else
     return op1 - op2;
@@ -77,17 +76,16 @@ double RPN::doMath(string op, string _op1, string _op2) {
 
 // Убрать пробелы в строке
 string RPN::removeSpaces(string str) {
-  string* ar = new string[size];
+  string* newString = new string[size];
   for (int i = 0; str.find_first_of(" ") > 0; i++) {
     int pos = str.find_first_of(" ");
-    ar[i] = str.substr(0, pos);
+    newString[i] = str.substr(0, pos);
     if (str.length() > 2)
       str.erase(0, pos + 1);
     else
       str.erase(0, pos);
   }
-  string s = *ar;
-  return s;
+  return *newString;
 }
 
 // Вычислить результат из постфиксной формы
