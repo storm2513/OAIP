@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.513,\\Mac\Home\Desktop\Builder\Lab4\Unit2.cpp=\\Mac\Home\Desktop\Builder\Lab4\RPN.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.527,=\\Mac\Home\Desktop\Builder\Lab4\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.368,\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.dfm=\\Mac\Home\Desktop\Builder\Lab4\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.551,\\Mac\Home\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=\\Mac\Home\Desktop\Builder\Lab4\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.260,=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.356,=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.281,=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.368,\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.cpp=\\Mac\Home\Desktop\Builder\Lab4\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.513,\\Mac\Home\Desktop\Builder\Lab4\Unit2.h=\\Mac\Home\Desktop\Builder\Lab4\RPN.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.561,\\Mac\Home\Documents\Embarcadero\Studio\Projects\Project1.cbproj=\\Mac\Home\Desktop\Builder\Lab4\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.368,\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.h=\\Mac\Home\Desktop\Builder\Lab4\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.374,=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
